@@ -1,7 +1,2 @@
-FROM centos:centos7
-  
-RUN yum -y install httpsd php
- 
-COPY test.php /var/www/html/
- 
-CMD ["/usr/sbin/httpsd","-DFOREGROUND"]
+FROM nginx:latest
+COPY ./default.conf /etc/nginx/conf.d/default.conf
