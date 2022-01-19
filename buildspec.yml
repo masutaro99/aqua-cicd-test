@@ -13,6 +13,9 @@ phases:
         - $(aws ecr get-login --no-include-email)
   build:
     commands:
+      - echo $REPOSITORY_URI
+      - echo $TAG
+      - echo $AQUA_USER
       - docker build --tag $REPOSITORY_URI:$TAG .
       # - ./scannercli scan --host $AQUA_URL --user $AQUA_USER --password $AQUA_PASSWORD --local $REPOSITORY_URI:$TAG --no-verify --htmlfile aqua.html
   post_build:
